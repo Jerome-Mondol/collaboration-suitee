@@ -8,7 +8,9 @@ import {
 } from "../../components/ui/field";
 import { Input } from "../../components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { useAuth } from "@/context/AuthContext";
+import { Link } from "react-router-dom";
 
 export function SignupForm() {
   const { signup, loading } = useAuth();
@@ -37,9 +39,10 @@ export function SignupForm() {
   return (
     <div className="w-full max-w-md bg-zinc-900 p-10 text-white border rounded-lg">
       <form onSubmit={handleUserSignup}>
+        <h1 className="text-3xl font-bold mb-2">Welcome!</h1>
+        <h2 className="text-lg mb-1">Sign up for free now!</h2>
         <FieldSet className="py-10">
-          <h1 className="text-3xl font-bold">Welcome!</h1>
-          <h2 className="text-xl mb-4">Sign up for free now!</h2>
+          <h3>Already Have a account? <Link to={'/login'} className="text-blue-600" >Login</Link></h3>
 
           <FieldGroup>
             <Field>
@@ -86,9 +89,19 @@ export function SignupForm() {
 
             {error && <p className="text-red-500 mt-2">{error}</p>}
 
-            <Button type="submit" variant="outline" className="mt-4 text-black">
-              {loading ? "Signing up..." : "Submit"}
-            </Button>
+
+           
+              <Button
+  type="submit"
+  variant="outline"
+  className="mt-4 text-black flex items-center justify-center gap-2"
+  disabled={loading}
+>
+  {loading && <Spinner size="sm" />}
+  {loading ? "Signing up..." : "Submit"}
+</Button>
+
+
           </FieldGroup>
         </FieldSet>
       </form>
