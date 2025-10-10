@@ -2,15 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import { AuthProvider } from '@/context/AuthContext'
+import { AuthProvider } from '@/context/Auth/AuthContext'
 import './index.css'
+import { TeamProvider } from './context/Dashboard/TeamContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ <AuthProvider>
+  <TeamProvider>
     <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </TeamProvider>
+</AuthProvider>
+
 )

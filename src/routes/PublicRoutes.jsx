@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route, Routes, Navigate} from 'react-router-dom';
-import SignupPage from '@/pages/SignupPage';
-import LoginPage from '@/pages/LoginPage';
+import SignupPage from '@/pages/auth/SignupPage';
+import LoginPage from '@/pages/auth/LoginPage';
 
 const PublicRoutes = () => {
   return (

@@ -9,7 +9,7 @@ import {
 import { Input } from "../../components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/Auth/AuthContext";
 import { Link } from "react-router-dom";
 
 export function LoginForm() {
